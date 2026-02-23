@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Service de paiement assisté</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Service de paiement assisté via Mobile Money</h1>
+  <p>Abonnements numériques, paiements internationaux et e-commerce</p>
+</header>
+
+<div class="container">
+
+<!-- ================= ABONNEMENTS ================= -->
+<h2>📺 Abonnements numériques</h2>
+<div class="grid">
+
+  <div class="card">
+    <img src="netflix.png">
+    <h3>Netflix</h3>
+    <button onclick="openForm('Netflix','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="primevideo.png">
+    <h3>Amazon Prime Video</h3>
+    <button onclick="openForm('Amazon Prime','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="chatgpt.png">
+    <h3>ChatGPT +</h3>
+    <button onclick="openForm('ChatGPT Plus','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="spotify.png">
+    <h3>Spotify Premium</h3>
+    <button onclick="openForm('Spotify','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="disney.png">
+    <h3>Disney +</h3>
+    <button onclick="openForm('Disney +','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="icloud.png">
+    <h3><i></i>cloud +</h3>
+    <button onclick="openForm('icloud +','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="snapchat.png">
+    <h3>Snapchat +</h3>
+    <button onclick="openForm('Snapchat +','Abonnement')">Commander</button>
+  </div>
+
+  <div class="card">
+    <img src="apple music.png">
+    <h3>Apple music</h3>
+    <button onclick="openForm('Apple music','Abonnement')">Commander</button>
+  </div>
+
+</div>
+
+<!-- ================= PAIEMENTS INTERNATIONAUX ================= -->
+<h2>🌍 Paiements internationaux</h2>
+<div class="grid">
+
+  <div class="card">
+    <img src="alibaba.png">
+    <h3>Alibaba</h3>
+    <button onclick="openForm('Alibaba','Paiement international')">Demander un paiement</button>
+  </div>
+
+  <div class="card">
+    <img src="shein.png">
+    <h3>Shein</h3>
+    <button onclick="openForm('Shein','Paiement international')">Demander un paiement</button>
+  </div>
+
+  <div class="card">
+    <img src="pinduoduo.png">
+    <h3>Pinduoduo</h3>
+    <button onclick="openForm('Pinduoduo','Paiement international')">Demander un paiement</button>
+  </div>
+
+</div>
+
+<!-- ================= E-COMMERCE ================= -->
+<h2>🛒 E-commerce</h2>
+<div class="grid">
+
+  <div class="card">
+    <img src="amazon.png">
+    <h3>Amazon</h3>
+    <button onclick="openForm('Amazon','E-commerce')">Demander un paiement</button>
+  </div>
+
+  <div class="card">
+    <img src="images/ebay.png">
+    <h3>eBay</h3>
+    <button onclick="openForm('eBay','E-commerce')">Demander un paiement</button>
+  </div>
+
+</div>
+</div>
+
+<!-- ================= FORMULAIRE ================= -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">×</span>
+    <h2 id="serviceTitle"></h2>
+
+    <label>Détails Produit </label>
+    <input id="detail" placeholder="Ex: Basic , Standard, Premium ou lien de produit">
+
+    <label>Durée / Quantité</label>
+    <input id="duration" placeholder="Ex: 1 mois / 3 mois / 5 pièces / 5 pièces">
+
+    <label>Lien produit ou Email du compte (si abonnement)</label>
+    <input id="email" placeholder="email@gmail.com">
+
+    <label>Montant du service ($)</label>
+    <input id="amount" type="number" oninput="calculate()">
+
+    <button type="button" onclick="sendWhatsApp()">💬 Finaliser sur WhatsApp</button>
+  </div>
+</div>
+
+<footer>
+  © 2026 – Service de paiement assisté
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
