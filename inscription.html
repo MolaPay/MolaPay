@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <link rel="stylesheet" href="style.css">
+  <head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</script>
+<section class="auth-section">
+    <div class="auth-container">
+        <h2>Commencez vos paiements</h2>
+        <p>Remplissez vos informations pour finaliser votre inscription sur WhatsApp.</p>
+
+        <form id="registrationForm">
+            <div class="input-group">
+                <label>Nom complet</label>
+                <input type="text" id="userName" placeholder="Ex: Exaucee kiangebeni" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email (Optionnel)</label>
+                <input type="email" id="userEmail" placeholder="votre@email.com">
+            </div>
+
+            <div class="input-group">
+                <label>Service souhaité</label>
+                <select id="userService" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <option value="Abonnement">Abonnement numérique et Divers</option>
+                    <option value="Service international">Service international</option>
+                    <option value="Service e-Commerce">Service e-Commerce</option>
+                    <option value="Autre service">Autre service international</option>
+                </select>
+            </div>
+
+            <button type="button" onclick="sendToWhatsApp()" class="btn-whatsapp-submit">
+                Finaliser l'inscription sur WhatsApp
+            </button>
+        </form>
+    </div>
+</section>
+<script>
+function sendToWhatsApp() {
+    const name = document.getElementById('userName').value;
+    const email = document.getElementById('userEmail').value || "Non précisé";
+    const service = document.getElementById('userService').value;
+
+    if(name === "") {
+        alert("S'il vous plaît, entrez votre nom.");
+        return;
+    }
+
+    const monNumero = "243895960400"; // METS TON NUMÉRO ICI (SANS LE +)
+
+    const message = "Bonjour Molapay,\n\n" +
+                    "Je souhaite m’inscrire et effectuer un paiement.\n" +
+                    "• Nom : " + name + "\n" +
+                    "• Email : " + email + "\n" +
+                    "• Service souhaité : " + service + "\n\n" +
+                    "Pouvez-vous m'indiquer la procédure pour le paiement ?";
+
+    const url = "https://wa.me/" + monNumero + "?text=" + encodeURIComponent(message);
+    window.open(url, '_blank');
+}
+</script>

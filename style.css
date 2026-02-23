@@ -1,0 +1,1540 @@
+/* Couleurs de ta palette */
+:root {
+    --college-blue: #0F214D;
+    --persian-blue: #1969ba;
+    --middle-blue: #AAF1FF;
+    --morning-blue: #f1f5f5;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    color: ar(--college-blue);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Effet de flou derrière le header */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(245, 244, 244, 0.05);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.logo-img {
+    height: 80px;
+    width: auto;
+    /* Animation de flottement */
+    animation: floating 3s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--college-blue);
+    letter-spacing: -1px;
+}
+
+.logo-text span {
+    color: var(--persian-blue); /* Le "pay" en bleu plus clair */
+}
+
+/* --- ANIMATIONS --- */
+
+/* Animation de flottement du logo */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Effet au survol du logo */
+.logo-container:hover .logo-img {
+    transform: scale(1.1) rotate(5deg);
+    transition: 0.3s;
+}
+
+/* Ajustement pour que le contenu ne passe pas sous le header fixe */
+body {
+    padding-top: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre l'icône et le texte */
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--college-blue);
+    text-decoration: none;
+}
+
+.logo img {
+    height: 35px; /* Ajuste la taille de ton icône ici */
+    width: auto;
+}
+
+/* Section Hero */
+.hero {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: var(--persian-blue);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Boutons */
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    background-color: var(--persian-blue);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    border: 2px solid var(--persian-blue);
+    color: var(--persian-blue);
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+/* Section Services */
+.services {
+    padding: 60px 20px;
+    background-color: var(--morning-blue);
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-header h2 {
+    font-size: 1.8rem;
+    color: var(--college-blue);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column; /* Pour mobile d'abord */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(15, 33, 77, 0.1); /* Bordure légère */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Ombre douce */
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Petit effet de survol */
+    border-color: var(--persian-blue);
+}
+
+.service-card .icon {
+    font-size: 30px;
+    margin-bottom: 20px;
+    background: var(--morning-blue);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.service-card h3 {
+    color: var(--college-blue);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive : Si l'écran est large (ordinateur) */
+@media (min-width: 768px) {
+    .services-container {
+        flex-direction: row; /* Aligne les cartes côte à côte */
+    }
+}
+
+footer {
+    background-color: #0F214D;
+    padding: 60px 20px 20px;
+    border-top: 1px solid #fcf9f9;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand p {
+    margin: 15px 0;
+    color: #666;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+    color: #0F214D;
+    font-size: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: var(--persian-blue);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ffffff;
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
+
+.legal-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.legal-links a {
+    color: var(--persian-blue);
+    text-decoration: none;
+}
+
+/* Tablette et Ordi */
+@media (min-width: 768px) {
+    .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Section Plateforme */
+.platform {
+    padding: 60px 20px;
+    background-color: #050D1F; /* Bleu très sombre comme sur l'image */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.platform-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.highlight-green {
+    color: #00D084; /* Le vert fluo de l'exemple pour faire ressortir le texte */
+}
+
+.platform-content p {
+    color: #ADB5BD;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.platform-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Version Ordinateur */
+@media (min-width: 768px) {
+    .platform {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 100px 5%;
+    }
+    .platform-content, .platform-image {
+        flex: 1;
+    }
+}
+
+/* Section Détail Carte Virtuelle */
+.virtual-card-detail {
+    padding: 60px 20px;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.vcard-text {
+    text-align: left;
+    max-width: 600px;
+}
+
+.vcard-text h2 {
+    font-size: 2rem;
+    color: var(--college-blue);
+    margin-bottom: 20px;
+}
+
+.vcard-text p {
+    color: #556987;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.vcard-visual img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    /* Effet d'ombre douce pour faire ressortir l'image sur le blanc */
+    box-shadow: 0 20px 40px rgba(15, 33, 77, 0.1);
+}
+
+/* Version Ordinateur */
+@media (min-width: 768px) {
+    .virtual-card-detail {
+        flex-direction: row-reverse; /* Texte à droite, image à gauche pour varier */
+        justify-content: space-around;
+        padding: 100px 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Caché par défaut sur mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        border-bottom: 2px solid var(--persian-blue);
+    }
+
+    nav.active ul {
+        display: flex; /* S'affiche quand on clique sur le burger */
+    }
+}
+
+/* Navigation Links */
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--college-blue);
+    font-weight: 600;
+    font-size: 15px;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+/* L'animation de la barre sous le texte */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--persian-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--persian-blue);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Boutons du Header */
+.header-btns {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: var(--college-blue);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn-signup {
+    text-decoration: none;
+    background: var(--persian-blue);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-signup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 78, 216, 0.3);
+}
+
+/* Cacher les boutons sur petit mobile si besoin */
+@media (max-width: 768px) {
+    .header-btns {
+        display: none;
+    }
+}
+
+/* Styles pour Auth (Inscription/Connexion) */
+.auth-body {
+    background: #f4f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.auth-card h2 {
+    margin: 20px 0 10px;
+    color: var(--college-blue);
+}
+
+.auth-card p {
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--college-blue);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--persian-blue);
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.auth-footer {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.auth-footer a {
+    color: var(--persian-blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Layout Dashboard */
+.dashboard-body {
+    display: flex;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: white;
+    border-right: 1px solid #e2e8f0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar ul {
+    margin-top: 50px;
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.sidebar li.active {
+    background: var(--morning-blue);
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: var(--college-blue);
+    font-weight: 600;
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.db-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.balance {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--college-blue);
+    margin: 10px 0;
+}
+
+/* Style de la Carte Virtuelle */
+.v-card-preview {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    position: relative;
+    height: 200px;
+    box-shadow: 0 15px 30px rgba(29, 78, 216, 0.3);
+}
+
+.card-chip {
+    width: 45px;
+    height: 35px;
+    background: #ffd700;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.card-number {
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.visa-logo {
+    position: absolute;
+    bottom: 25px;
+    right: 30px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.transactions-section {
+    margin-top: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.t-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.t-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.netflix { background: #fee2e2; color: #dc2626; }
+.deposit { background: #dcfce7; color: #16a34a; }
+.apple { background: #f1f5f9; color: #000; }
+
+.t-info { flex: 1; }
+.t-info h4 { font-size: 15px; color: var(--college-blue); }
+.t-info p { font-size: 12px; color: #64748b; }
+
+.t-amount { font-weight: 700; }
+.minus { color: #000; }
+.plus { color: #16a34a; }
+
+/* --- RESPONSIVE DASHBOARD --- */
+@media (max-width: 768px) {
+    .dashboard-body {
+        flex-direction: column; /* On empile tout verticalement */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+        border-right: none;
+        border-top: 1px solid #e2e8f0;
+        z-index: 1000;
+    }
+
+    .sidebar .logo, .sidebar .user-profile {
+        display: none; /* On cache le logo et le profil en bas pour gagner de la place */
+    }
+
+    .sidebar ul {
+        margin-top: 0;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .sidebar li {
+        margin-bottom: 0;
+        padding: 10px;
+    }
+
+    .sidebar li a {
+        font-size: 12px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+        padding-bottom: 100px; /* Espace pour ne pas cacher le contenu par le menu du bas */
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .v-card-preview {
+        height: 180px;
+    }
+}
+
+/* --- RESPONSIVE ACCUEIL (index.html) --- */
+@media (max-width: 768px) {
+    /* Header & Navigation */
+    header {
+        padding: 10px 15px;
+    }
+
+    nav {
+        display: none; /* On cache le menu horizontal pour le mobile */
+    }
+
+    .header-btns {
+        display: none; /* Cache les boutons de connexion du haut */
+    }
+
+    /* Section Hero (Le texte principal) */
+    .hero {
+        padding: 100px 20px 40px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 28px; /* On réduit la taille du titre */
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-btns {
+        flex-direction: column; /* Boutons l'un au-dessus de l'autre */
+        gap: 10px;
+    }
+
+    .hero-btns .btn-signup, .hero-btns .btn-login {
+        width: 100%; /* Les boutons prennent toute la largeur */
+        text-align: center;
+    }
+
+    /* Grille des Services */
+    .services-grid {
+        grid-template-columns: 1fr; /* Une seule colonne au lieu de 3 */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Section Plateforme (Zone sombre) */
+    .platform-section {
+        padding: 40px 20px;
+    }
+
+    .platform-section h2 {
+        font-size: 24px;
+    }
+
+    /* Images */
+    .hero-image img, .platform-image img {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+}
+
+/* Style du bouton Burger */
+.menu-burger {
+    display: none; /* Caché sur ordi */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-burger span {
+    width: 25px;
+    height: 3px;
+    background: var(--college-blue);
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* Affichage du burger sur mobile uniquement */
+@media (max-width: 768px) {
+    .menu-burger {
+        display: flex;
+    }
+
+    /* On transforme le menu en liste verticale cachée */
+    nav ul {
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Quand on ajoute la classe "open" via JS */
+    nav ul.show {
+        display: flex;
+    }
+}
+
+/* Animation de la ligne sous les liens */
+nav ul li a {
+    text-decoration: none;
+    color: #0f214d;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Ligne invisible au départ */
+    height: 2px;
+    background: #1d4ed8;
+    transition: width 0.3s ease; /* C'est ça qui fait l'effet "sortant" */
+}
+
+nav ul li a:hover::after, 
+nav ul li a.active::after {
+    width: 100%; /* La ligne se déploie entièrement */
+}
+
+/* Bouton S'inscrire stylisé */
+.btn-signup {
+    background: #1d4ed8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.btn-signup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.3);
+}
+
+footer {
+    background: #0f214d; /* Bleu très foncé pour le contraste */
+    color: rgb(0, 0, 0);
+    padding: 60px 5% 20px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #dfe1e7;
+}
+
+.footer-col p {
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #dbdfe7;
+}
+
+/* Styles des Icônes Réseaux Sociaux */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform 0.3s;
+}
+
+.facebook { background: #1877f2; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.whatsapp { background: #25d366; }
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white; /* Fond blanc pour faire ressortir le logo */
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.social-icon img {
+    width: 100%; /* L'image prend toute la place du cercle */
+    height: auto;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* --- SECTION HERO CENTRÉE --- */
+.hero {
+    padding-top: 100px;
+    background-color: #ffffff; /* Fond blanc pur */
+    text-align: center;
+}
+
+.hero-container-centered {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center;    /* Centre tout horizontalement */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-container-centered h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px; /* Espace avant l'image */
+}
+
+/* Style de l'image de la personne */
+.hero-person-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-person-image img {
+    max-width: 450px; /* Pour que la personne ne prenne pas toute la place */
+    height: auto;
+    /* On enlève les bordures ou ombres pour que la personne semble "posée" sur la page */
+    background: transparent; 
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+    .hero-container-centered h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-person-image img {
+        max-width: 80%; /* Un peu plus petit sur mobile */
+    }
+}
+
+/* --- AJUSTEMENT IMAGE MOYENS DE PAIEMENT --- */
+
+.platform-container {
+    display: flex;
+    align-items: center; /* Aligne le texte et l'image sur la même ligne */
+    justify-content: space-between;
+    padding: 60px 8%;
+    gap: 40px;
+}
+
+.platform-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centre l'image dans son bloc */
+}
+
+.platform-image img {
+    width: 90%;
+    max-width: 450px; /* Force l'image à ne pas dépasser cette taille sur ordi */
+    height: auto;
+    object-fit: contain; /* Garde les bonnes proportions */
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 768px) {
+    .platform-container {
+        flex-direction: column; /* Empile le texte et l'image sur mobile */
+        text-align: center;
+    }
+    
+    .platform-image img {
+        max-width: 80%; /* Un peu plus petit sur petit écran */
+    }
+}
+
+/* Style FAQ */
+.faq {
+    padding: 80px 20px;
+    background-color: var(--morning-blue);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid rgba(15, 33, 77, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--college-blue);
+}
+
+.faq-answer {
+    padding: 0 25px;
+    max-height: 0; /* Caché par défaut */
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: #556987;
+    background-color: #f9feff;
+}
+
+/* État actif (quand on clique) */
+.faq-item.active .faq-answer {
+    max-height: 200px; /* S'ouvre */
+    padding-bottom: 20px;
+}
+
+.faq-item.active .arrow {
+    transform: rotate(180deg);
+    color: var(--persian-blue);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Force le header à être au premier plan */
+}
+
+.menu-toggle {
+    z-index: 1001; /* Encore plus haut que le header */
+}
+
+.btn-whatsapp-submit {
+    width: 100%;
+    background-color: #25D366;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+/* --- PAGE INSCRIPTION / AUTHENTIFICATION --- */
+
+/* Centrage total de la section */
+.auth-section {
+    padding: 120px 5% 60px; /* Espace pour le header fixe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8fafc; /* Fond très léger pour faire ressortir le formulaire */
+}
+
+/* Le conteneur blanc (la carte) */
+.auth-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Ombre douce */
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #0f214d;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Groupes d'entrée (Labels et Inputs) */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0f214d;
+    font-size: 14px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #0f214d;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    outline: none;
+    border-color: #2563eb; /* Ton bleu principal */
+}
+
+/* Le bouton WhatsApp magique */
+.btn-whatsapp-submit {
+    width: 100%;
+    background-color: #25D366; /* Vert officiel WhatsApp */
+    color: #ffffff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-whatsapp-submit:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Icône à l'intérieur du bouton */
+.btn-whatsapp-submit img {
+    width: 22px;
+    height: 22px;
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 30px 20px;
+    }
+    
+    .auth-section {
+        padding-top: 100px;
+    }
+}
+
+/* --- VARIABLES DE COULEURS --- */
+:root {
+    --primary-blue: #0f214d;
+    --accent-blue: #2563eb;
+    --whatsapp-green: #25D366;
+    --whatsapp-dark: #128C7E;
+    --bg-light: #f4f7fe;
+    --text-gray: #64748b;
+}
+
+/* --- SECTION PRINCIPALE --- */
+.dashboard-section {
+    padding: 100px 5% 60px;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dash-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dash-container h2 {
+    color: var(--primary-blue);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.dash-container p {
+    color: var(--text-gray);
+    margin-bottom: 40px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f1f1;
+}
+
+header {
+  padding: 18px;
+  text-align: center;
+  background: linear-gradient(135deg,#f8f5f5,#fafafa);
+  color: rgb(13, 25, 117);
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(13, 25, 117);
+  margin-top: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #f9fafb;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.1);
+  transition: transform .3s;
+}
+
+.card {
+  transform: translateY(20px);
+  animation: fadeUp .8s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.card button {
+  margin-top: 10px;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+}
+
+.modal-content {
+  background: rgb(248, 248, 248);
+  max-width: 400spx;
+  margin: 150px auto;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.close {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+}
+
+.result {
+  background: #070807;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.modal-content button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 18px;
+  background: #68c138;
+  color: rgb(252, 252, 252);
+  border: none;
+  border-radius: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #02041b;
+  margin-top: 40px;
+}
+
+.modal-content {
+  animation: fadeUp .4s;
+}
+
+.modal-content button:hover {
+  transform: scale(1.05);
+}
+
+/* ================= MODE MOBILE ================= */
+@media (max-width: 768px) {
+
+  header {
+    padding: 30px 15px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  header p {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 35px;
+  }
+
+  /* Cartes services */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card img {
+    width: 50px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card button {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  /* MODAL (formulaire) */
+  .modal-content {
+    width: 90%;
+    margin: 120px auto;
+    padding: 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .modal-content input {
+    font-size: 15px;
+  }
+
+  .modal-content button {
+    font-size: 16px;
+  }
+
+  .result {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 13px;
+  }
+}

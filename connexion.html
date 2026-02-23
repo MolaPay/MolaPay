@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <link rel="stylesheet" href="style.css">
+  <head>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</script>
+<section class="auth-section">
+    <div class="auth-container">
+        <h2>Devenez partenaire avec nous </h2>
+        <p>Remplissez vos information et faite de trasanction gratuit sans commission en amenant 10 personne sur le site ou application.</p>
+
+        <form id="registrationForm">
+            <div class="input-group">
+                <label>Nom complet</label>
+                <input type="text" id="userName" placeholder="Ex: Jean Mukendi" required>
+            </div>
+
+            <div class="input-group">
+                <label>Email (Optionnel)</label>
+                <input type="email" id="userEmail" placeholder="exemple@email.com">
+            </div>
+
+            <div class="input-group">
+                <label>Numero telephone</label>
+                <input type="number" id="userNumber" placeholder="+243xxxxxxxxx">
+            </div>
+
+            <button type="button" onclick="sendToWhatsApp()" class="btn-whatsapp-submit">
+                Finaliser l'inscription sur WhatsApp
+            </button>
+        </form>
+    </div>
+</section>
