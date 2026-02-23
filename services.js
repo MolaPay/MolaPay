@@ -1,4 +1,3 @@
-
 let currentService = "";
 let currentType = "";
 
@@ -60,4 +59,3 @@ Total à payer : ${total} $
 
   
 }
-const COMMISSION_RATE = 0.10;

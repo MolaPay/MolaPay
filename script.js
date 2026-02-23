@@ -25,35 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const burger = document.getElementById('mobile-menu');
-const navList = document.querySelector('nav ul');
-
-if(burger) {
-    burger.addEventListener('click', () => {
-        navList.classList.toggle('show');
-    });
-}
-
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const item = question.parentElement;
-        item.classList.toggle('active');
-    });
-});
-
 console.log("Le fichier JS est bien chargé !");
-
-const menuToggle = document.querySelector('#mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-
-if(menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        console.log("Clic détecté sur le burger !");
-        navLinks.classList.toggle('active');
-    });
-} else {
-    console.log("Erreur : Le bouton #mobile-menu n'a pas été trouvé dans le HTML.");
-}
 
 const WHATSAPP_NUMBER = "243895960400";
 const COMMISSION_RATE = 0.10;
@@ -221,3 +193,16 @@ ${amount} $
 
   window.open(whatsappURL, "_blank");
 }
+
+const burger = document.getElementById("burger");
+const nav = document.getElementById("nav");
+
+burger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+
+const burger = document.getElementById("burger");
+
+burger.addEventListener("click", function() {
+    alert("Ça clique !");
+});

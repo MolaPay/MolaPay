@@ -1538,3 +1538,85 @@ footer {
     font-size: 13px;
   }
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #fbf8f8;
+    color: white;
+}
+
+/* MENU NORMAL (PC) */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #0F214D;
+    text-decoration: none;
+}
+
+/* BURGER CACHE SUR PC */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #0F214D;
+    margin: 4px 0;
+}
+
+/* VERSION MOBILE */
+@media (max-width: 768px) {
+
+    /* Cache le menu normal */
+    nav {
+        position: absolute;
+        top: 60px;
+        right: -100%;
+        background: #030303;
+        width: 200px;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    /* Affiche le burger */
+    .burger {
+        display: flex;
+    }
+
+    /* Quand actif */
+    nav.active {
+        right: 0;
+    }
+}
