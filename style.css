@@ -1731,12 +1731,12 @@ header p { text-align: center; color: #64748b; margin-bottom: 30px; }
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .service-card { background: white; padding: 15px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 .service-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1); border: 1px solid var(--blue); }
-.service-card i { display: block; font-size: 24px; color: var(--blue); margin-bottom: 8px; }
-.service-card span { font-size: 12px; font-weight: 600; }
+.service-card i { display: block; font-size: 27px; color: var(--blue); margin-bottom: 8px; }
+.service-card span { font-size: 14px; font-weight: 600; }
 
 /* Modal Form */
 .modal-form { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-.form-content { background: white; margin: 10% auto; padding: 25px; border-radius: 20px; width: 90%; max-width: 400px; position: relative; }
+.form-content { background: white; margin: 20% auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 400px; position: relative; }
 .close { position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; }
 
 label { display: block; font-size: 13px; font-weight: bold; margin-top: 15px; color: #475569; }
@@ -1766,3 +1766,4 @@ select {
 .faq-item.active .faq-answer {
   max-height: 200px; /* ajuste selon ton contenu */
 }
+
