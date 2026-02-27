@@ -194,15 +194,16 @@ ${amount} $
   window.open(whatsappURL, "_blank");
 }
 
-const burger = document.getElementById("burger");
-const nav = document.getElementById("nav");
+const items = document.querySelectorAll(".faq-question");
 
-burger.addEventListener("click", () => {
-    nav.classList.toggle("active");
-});
+items.forEach(question => {
+  question.addEventListener("click", () => {
+    const answer = question.nextElementSibling;
 
-const burger = document.getElementById("burger");
-
-burger.addEventListener("click", function() {
-    alert("Ça clique !");
+    if (answer.style.maxHeight) {
+      answer.style.maxHeight = null;
+    } else {
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
 });

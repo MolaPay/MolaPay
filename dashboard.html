@@ -1,142 +1,83 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Service de paiement assisté</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MolaPay - Dashboard Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style-dashboard.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>Service de paiement assisté via Mobile Money</h1>
-  <p>Abonnements numériques, paiements internationaux et e-commerce</p>
-</header>
-
 <div class="container">
+    <header>
+        <h1>MolaPay</h1>
+        <p>Sélectionnez votre type de service</p>
+    </header>
 
-<!-- ================= ABONNEMENTS ================= -->
-<h2>📺 Abonnements numériques</h2>
-<div class="grid">
+    <div class="section-title">Abonnements Numériques (Frais 5%)</div>
+    <div class="grid">
+        <div class="service-card" onclick="openForm('Netflix', 1.05, 'digital')"><i class="fab fa-netflix"></i><span>Netflix</span></div>
+        <div class="service-card" onclick="openForm('Prime Video', 1.05, 'digital')"><i class="fas fa-video"></i><span>Prime video</span></div>
+        <div class="service-card" onclick="openForm('ChatGPT +', 1.05, 'digital')"><i class="fas fa-robot"></i><span>ChatGPT+</span></div>
+        <div class="service-card" onclick="openForm('Spotify', 1.05, 'digital')"><i class="fab fa-spotify"></i><span>Spotify</span></div>
+        <div class="service-card" onclick="openForm('iCloud +', 1.05, 'digital')"><i class="fas fa-cloud"></i><span>iCloud+</span></div>
+        <div class="service-card" onclick="openForm('Apple Music', 1.05, 'digital')"><i class="fab fa-apple"></i><span>Apple Music</span></div>
+    </div>
 
-  <div class="card">
-    <img src="netflix.png">
-    <h3>Netflix</h3>
-    <button onclick="openForm('Netflix','Abonnement')">Commander</button>
-  </div>
+    <div class="section-title">Paiements Internationaux (Frais 10%)</div>
+    <div class="grid">
+        <div class="service-card" onclick="openForm('Alibaba', 1.10, 'intl')"><i class="fas fa-box"></i><span>Alibaba</span></div>
+        <div class="service-card" onclick="openForm('Shein', 1.10, 'intl')"><i class="fas fa-tshirt"></i><span>Shein</span></div>
+        <div class="service-card" onclick="openForm('Pinduoduo', 1.10, 'intl')"><i class="fas fa-store"></i><span>Pinduoduo</span></div>
+        <div class="service-card" onclick="openForm('Shopify', 1.10, 'intl')"><i class="fab fa-shopify"></i><span>Shopify</span></div>
+    </div>
 
-  <div class="card">
-    <img src="primevideo.png">
-    <h3>Amazon Prime Video</h3>
-    <button onclick="openForm('Amazon Prime','Abonnement')">Commander</button>
-  </div>
+    <div class="section-title">E-Commerce (Frais 10%)</div>
+    <div class="grid">
+        <div class="service-card" onclick="openForm('Amazon', 1.10, 'intl')"><i class="fab fa-amazon"></i><span>Amazon</span></div>
+        <div class="service-card" onclick="openForm('eBay', 1.10, 'intl')"><i class="fab fa-ebay"></i><span>eBay</span></div>
+    </div>
 
-  <div class="card">
-    <img src="chatgpt.png">
-    <h3>ChatGPT +</h3>
-    <button onclick="openForm('ChatGPT Plus','Abonnement')">Commander</button>
-  </div>
+    <div id="mainForm" class="modal-form">
+        <div class="form-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <h3 id="formTitle">Service</h3>
+            
+            <label>Montant en Dollars ($)</label>
+            <input type="number" id="amount" placeholder="Ex: 20" oninput="calculate()">
 
-  <div class="card">
-    <img src="spotify.png">
-    <h3>Spotify Premium</h3>
-    <button onclick="openForm('Spotify','Abonnement')">Commander</button>
-  </div>
+            <div id="intlFields" style="display:none;">
+                <label>Lien de l'article</label>
+                <input type="text" id="itemLink" placeholder="Collez le lien ici...">
+                <label>Options (Taille, Couleur, Qté)</label>
+                <textarea id="itemDetails" placeholder="Ex: Bleu, Taille L, x2"></textarea>
+            </div>
 
-  <div class="card">
-    <img src="disney.png">
-    <h3>Disney +</h3>
-    <button onclick="openForm('Disney +','Abonnement')">Commander</button>
-  </div>
+ <div id="digitalFields" style="display:none;">
+    <label>Type d'abonnement</label>
+    <select id="subType" onchange="calculate()">
+        <option value="Basic">Basic</option>
+        <option value="Classique" selected>Classique</option>
+        <option value="Premium">Premium</option>
+    </select>
 
-  <div class="card">
-    <img src="icloud.png">
-    <h3><i></i>cloud +</h3>
-    <button onclick="openForm('icloud +','Abonnement')">Commander</button>
-  </div>
+    <label>Email du compte (si existant)</label>
+    <input type="email" id="accountEmail" placeholder="votre@email.com">
+</div>
+            <div class="total-area">
+                <span>Total à payer (frais inclus) :</span>
+                <div id="totalDisplay">0.00 $</div>
+            </div>
 
-  <div class="card">
-    <img src="snapchat.png">
-    <h3>Snapchat +</h3>
-    <button onclick="openForm('Snapchat +','Abonnement')">Commander</button>
-  </div>
-
-  <div class="card">
-    <img src="apple music.png">
-    <h3>Apple music</h3>
-    <button onclick="openForm('Apple music','Abonnement')">Commander</button>
-  </div>
-
+            <a href="#" id="waLink" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Finaliser sur WhatsApp
+            </a>
+        </div>
+    </div>
 </div>
 
-<!-- ================= PAIEMENTS INTERNATIONAUX ================= -->
-<h2>🌍 Paiements internationaux</h2>
-<div class="grid">
-
-  <div class="card">
-    <img src="alibaba.png">
-    <h3>Alibaba</h3>
-    <button onclick="openForm('Alibaba','Paiement international')">Demander un paiement</button>
-  </div>
-
-  <div class="card">
-    <img src="shein.png">
-    <h3>Shein</h3>
-    <button onclick="openForm('Shein','Paiement international')">Demander un paiement</button>
-  </div>
-
-  <div class="card">
-    <img src="pinduoduo.png">
-    <h3>Pinduoduo</h3>
-    <button onclick="openForm('Pinduoduo','Paiement international')">Demander un paiement</button>
-  </div>
-
-</div>
-
-<!-- ================= E-COMMERCE ================= -->
-<h2>🛒 E-commerce</h2>
-<div class="grid">
-
-  <div class="card">
-    <img src="amazon.png">
-    <h3>Amazon</h3>
-    <button onclick="openForm('Amazon','E-commerce')">Demander un paiement</button>
-  </div>
-
-  <div class="card">
-    <img src="images/ebay.png">
-    <h3>eBay</h3>
-    <button onclick="openForm('eBay','E-commerce')">Demander un paiement</button>
-  </div>
-
-</div>
-</div>
-
-<!-- ================= FORMULAIRE ================= -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeForm()">×</span>
-    <h2 id="serviceTitle"></h2>
-
-    <label>Détails Produit </label>
-    <input id="detail" placeholder="Ex: Basic , Standard, Premium ou lien de produit">
-
-    <label>Durée / Quantité</label>
-    <input id="duration" placeholder="Ex: 1 mois / 3 mois / 5 pièces / 5 pièces">
-
-    <label>Lien produit ou Email du compte (si abonnement)</label>
-    <input id="email" placeholder="email@gmail.com">
-
-    <label>Montant du service ($)</label>
-    <input id="amount" type="number" oninput="calculate()">
-
-    <button type="button" onclick="sendWhatsApp()">💬 Finaliser sur WhatsApp</button>
-  </div>
-</div>
-
-<footer>
-  © 2026 – Service de paiement assisté
-</footer>
-<script src="script.js"></script>
+<script src="script-dashboard.js"></script>
 </body>
 </html>

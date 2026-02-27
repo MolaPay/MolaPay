@@ -9,54 +9,59 @@
         <h2>Commencez vos paiements</h2>
         <p>Remplissez vos informations pour finaliser votre inscription sur WhatsApp.</p>
 
-        <form id="registrationForm">
-            <div class="input-group">
-                <label>Nom complet</label>
-                <input type="text" id="userName" placeholder="Ex: Exaucee kiangebeni" required>
-            </div>
+        <form id="form-inscription" style="max-width: 400px; margin: auto; display: flex; flex-direction: column; gap: 15px;">
+    
+    <label for="nom">Nom complet</label>
+    <input type="text" name="nom" id="nom" placeholder="Ex: Jean Mukendi" required>
 
-            <div class="input-group">
-                <label>Email (Optionnel)</label>
-                <input type="email" id="userEmail" placeholder="votre@email.com">
-            </div>
+    <label for="email">Adresse Email</label>
+    <input type="email" name="email" id="email" placeholder="Ex: jean@mail.com" required>
 
-            <div class="input-group">
-                <label>Service souhaité</label>
-                <select id="userService" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                    <option value="Abonnement">Abonnement numérique et Divers</option>
-                    <option value="Service international">Service international</option>
-                    <option value="Service e-Commerce">Service e-Commerce</option>
-                    <option value="Autre service">Autre service international</option>
-                </select>
-            </div>
+    <label for="telephone">Numéro WhatsApp</label>
+    <input type="tel" name="telephone" id="telephone" placeholder="Ex: +243 812 000 000" required>
 
-            <button type="button" onclick="sendToWhatsApp()" class="btn-whatsapp-submit">
-                Finaliser l'inscription sur WhatsApp
-            </button>
-        </form>
+    <label for="service">Service souhaité</label>
+    <select name="service" id="service" required>
+        <option value="" disabled selected>Choisissez un service...</option>
+        <option value="Netflix">Abonnement Numerique</option>
+        <option value="Canva">Paiement E-commerce</option>
+        <option value="Alibaba">Paiement Internationaux</option>
+        <option value="Autre">Autre service</option>
+    </select>
+    <a href="Dashboard.html">
+    <button type="submit" id="submit-btn" style="background-color: #2563eb; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+        S'inscrire et Commander
+    </button>
+</form>
     </div>
 </section>
 <script>
-function sendToWhatsApp() {
-    const name = document.getElementById('userName').value;
-    const email = document.getElementById('userEmail').value || "Non précisé";
-    const service = document.getElementById('userService').value;
+    // 1. Ton lien Google que tu as copié
+    const scriptURL = 'TON_LIEN_QUI_FINIT_PAR_EXEC';
+    
+    // 2. On sélectionne ton formulaire
+    const form = document.querySelector('form');
 
-    if(name === "") {
-        alert("S'il vous plaît, entrez votre nom.");
-        return;
-    }
+    form.addEventListener('submit', e => {
+        e.preventDefault(); // Empêche le rechargement de la page
+        
+        // On peut changer le texte du bouton pour montrer que ça charge
+        const btn = form.querySelector('button');
+        btn.disabled = true;
+        btn.innerText = "Inscription en cours...";
 
-    const monNumero = "243895960400"; // METS TON NUMÉRO ICI (SANS LE +)
-
-    const message = "Bonjour Molapay,\n\n" +
-                    "Je souhaite m’inscrire et effectuer un paiement.\n" +
-                    "• Nom : " + name + "\n" +
-                    "• Email : " + email + "\n" +
-                    "• Service souhaité : " + service + "\n\n" +
-                    "Pouvez-vous m'indiquer la procédure pour le paiement ?";
-
-    const url = "https://wa.me/" + monNumero + "?text=" + encodeURIComponent(message);
-    window.open(url, '_blank');
-}
+        // 3. Envoi des données vers Google Sheets
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+              console.log('Succès !', response);
+              // 4. REDIRECTION vers le dashboard
+              window.location.href = "dashboard.html"; 
+          })
+          .catch(error => {
+              console.error('Erreur !', error.message);
+              alert("Désolé, une erreur est survenue. Réessayez.");
+              btn.disabled = false;
+              btn.innerText = "S'inscrire et Commander";
+          });
+    });
 </script>
