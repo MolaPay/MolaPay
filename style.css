@@ -1721,7 +1721,7 @@ nav ul li a {
 }
 
 :root { --blue: #2563eb; --green: #25d366; --bg: #f1f5f9; }
-body { font-family: sans-serif; background: var(--bg); padding: 20px; }
+body { font-family: sans-serif; background: var(--bg); }
 .container { max-width: 600px; margin: auto; }
 header h1 { color: var(--blue); text-align: center; margin-bottom: 5px; }
 header p { text-align: center; color: #64748b; margin-bottom: 30px; }
